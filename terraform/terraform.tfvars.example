@@ -1,0 +1,17 @@
+project_name       = "java-login-app"
+aws_region         = "eu-west-2"
+az                 = "eu-west-2a"
+vpc_cidr           = "10.10.0.0/16"
+public_subnet_cidr = "10.10.0.0/24"
+private_subnet_cidr= "10.10.1.0/24"
+
+app_instance_type  = "t3.small"
+app_min_size       = 2
+app_desired_size   = 2
+app_max_size       = 4
+
+db_name            = "appdb"
+db_username        = "appuser"
+
+# Set this AFTER you push an image (Step 2)
+app_image_tag      = "initial"
