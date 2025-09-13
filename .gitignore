@@ -1,0 +1,17 @@
+# Ignore Terraform local state
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore provider binaries
+*.exe
+
+# Ignore Maven/Java build output
+target/
+
