@@ -117,9 +117,10 @@ resource "aws_security_group" "alb_sg" {
 
 resource "aws_security_group" "app_sg" {
   name        = "java-login-app-app-sg-v2"
-  description = "Allow HTTP traffic to app instances"
+  description = "Allow HTTP traffic to app instances and SSH from my IP"
   vpc_id      = aws_vpc.app_vpc.id
 
+  # Allow traffic from ALB on port 8080
   ingress {
     from_port       = 8080
     to_port         = 8080
@@ -127,6 +128,15 @@ resource "aws_security_group" "app_sg" {
     security_groups = [aws_security_group.alb_sg.id]
   }
 
+  # Allow SSH only from your IP
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["86.136.13.188/32"]
+  }
+
+  # Allow all outbound traffic
   egress {
     from_port   = 0
     to_port     = 0
