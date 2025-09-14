@@ -7,7 +7,7 @@ set -e
 yum update -y
 
 # --------------------------
-# Install Java 11
+# Install Java 11 and Tomcat
 # --------------------------
 amazon-linux-extras enable java-openjdk11 -y
 yum install -y java-11-openjdk wget tomcat
@@ -22,7 +22,7 @@ systemctl start tomcat
 # Deploy your WAR as ROOT
 # --------------------------
 wget -O /usr/share/tomcat/webapps/ROOT.war \
-  https://github.com/richiesure/DevOps-Project-101/releases/download/v1.0.0/dptweb-1.0.war
+  https://github.com/richiesure/DevOps-Project-101/releases/download/v1.0.0/ROOT.war
 
 # --------------------------
 # Restart Tomcat to pick up the WAR
